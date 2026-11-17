@@ -1,0 +1,221 @@
+<!doctype html><html lang="az"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex"><meta property="og:title" content="AZ Altyazı · Premiere Pro plagini"><meta property="og:image" content="poster.jpg"><style>body{margin:0}img{max-width:100%}</style></head><body><title>AZ Altyazı</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Montserrat:wght@500;600;800&display=swap" rel="stylesheet">
+<style>
+  /* Layout: one dark Ad Working column; video + download on top, then a numbered install path, usage, fixes, contact. */
+  :root {
+    --bg: #030a1f; --panel: #0a1a46; --line: rgba(95,180,255,.28);
+    --fg: #eaf4ff; --muted: #9fb6d6; --accent: #3fa0ff; --accent-2: #0a4dff; --ok: #3dff9a; --warn: #ffd23f;
+    --display: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+    --body: "Montserrat", "Segoe UI", Arial, sans-serif;
+    --mono: Consolas, "Courier New", monospace;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 16px; line-height: 1.6;
+    background-image: radial-gradient(900px 700px at 50% -10%, #0b2a78 0%, transparent 70%),
+      linear-gradient(rgba(95,180,255,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(95,180,255,.06) 1px, transparent 1px);
+    background-size: auto, 64px 64px, 64px 64px; }
+  .wrap { max-width: 1060px; margin: 0 auto; padding-block: 28px 64px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  header.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  header.top img { height: 52px; width: auto; }
+  .tag { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 800; line-height: 1.02; text-wrap: balance; margin: 0; text-transform: uppercase; }
+  h1 { font-size: clamp(64px, 12vw, 128px); letter-spacing: .01em;
+    background: linear-gradient(180deg, #b9ecff 0%, var(--accent) 55%, var(--accent-2) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  h2 { font-size: clamp(36px, 6vw, 56px); margin-bottom: 18px; }
+  h3 { font-size: 26px; }
+  p { margin: 0; }
+  .hero { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 40px; align-items: center; margin-top: 36px; }
+  .hero .lead { font-size: 19px; color: var(--muted); max-width: 34ch; margin-top: 14px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+  .chip { border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: 13px; font-weight: 600; color: var(--fg); background: rgba(63,160,255,.08); }
+  .btn.wa { text-decoration: none; background: linear-gradient(90deg, #1fa855, #25d366); box-shadow: 0 0 36px rgba(37,211,102,.45); }
+  .chip.price { background: var(--warn); color: #021034; border-color: var(--warn); font-weight: 800; font-size: 15px; }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; align-items: center; }
+  .btn { appearance: none; border: 0; cursor: pointer; font-family: var(--body); font-weight: 800; font-size: 17px; letter-spacing: .02em;
+    border-radius: 14px; padding: 16px 26px; color: #fff; background: linear-gradient(90deg, var(--accent-2), var(--accent));
+    box-shadow: 0 0 36px rgba(47,139,255,.55); display: inline-flex; align-items: center; gap: 10px; }
+  .btn:hover { filter: brightness(1.12); }
+  .btn:focus-visible, .ghost:focus-visible, summary:focus-visible { outline: 3px solid var(--warn); outline-offset: 3px; }
+  .btn[disabled] { opacity: .6; cursor: progress; }
+  .ghost { appearance: none; cursor: pointer; font-family: var(--body); font-weight: 600; font-size: 15px; color: var(--fg);
+    background: transparent; border: 1px solid var(--line); border-radius: 14px; padding: 15px 20px; }
+  .note { font-size: 13px; color: var(--muted); margin-top: 10px; min-height: 1.4em; }
+  .note.ok { color: var(--ok); } .note.err { color: var(--warn); }
+  .phone { justify-self: center; width: min(340px, 100%); aspect-ratio: 9 / 16; border-radius: 40px; overflow: hidden;
+    border: 8px solid #0b1430; box-shadow: 0 0 0 2px var(--accent), 0 0 70px rgba(47,139,255,.55); background: #000; max-width: 100%; }
+  .phone video { width: 100%; height: 100%; object-fit: cover; display: block; }
+  section { margin-top: 72px; }
+  .feat { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+  .card { border: 1px solid var(--line); border-radius: 18px; padding: 20px; background: linear-gradient(160deg, rgba(24,70,190,.35), rgba(5,14,46,.6)); min-width: 0; }
+  .card b { display: block; font-family: var(--display); font-size: 24px; text-transform: uppercase; letter-spacing: .02em; margin-bottom: 6px; }
+  .card p { color: var(--muted); font-size: 15px; }
+  .styles { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .styles span { font-size: 13px; padding: 5px 10px; border-radius: 8px; background: rgba(122,77,255,.22); border: 1px solid rgba(160,140,255,.4); }
+  .req { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 24px; padding: 0; margin: 0; list-style: none; }
+  .req li { padding-left: 26px; position: relative; color: var(--fg); }
+  .req li::before { content: ""; position: absolute; left: 4px; top: .55em; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px var(--accent); }
+  .req small { color: var(--muted); }
+  ol.steps { list-style: none; counter-reset: s; padding: 0; margin: 0; display: grid; gap: 14px; }
+  ol.steps > li { counter-increment: s; display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 16px; align-items: start;
+    border: 1px solid var(--line); border-radius: 18px; padding: 18px 20px; background: rgba(10,26,70,.55); }
+  ol.steps > li::before { content: counter(s); font-family: var(--display); font-weight: 800; font-size: 40px; line-height: 1; color: var(--accent);
+    width: 56px; height: 56px; border-radius: 14px; display: grid; place-items: center; background: rgba(63,160,255,.12); border: 1px solid var(--line); }
+  ol.steps p { color: var(--muted); }
+  ol.steps strong { color: var(--fg); }
+  .models { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 12px; }
+  .models div { border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; font-size: 14px; color: var(--muted); }
+  .models b { color: var(--fg); font-family: var(--mono); font-size: 15px; display: block; }
+  code, kbd { font-family: var(--mono); font-size: .92em; background: rgba(63,160,255,.14); border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px; color: var(--fg); word-break: break-word; }
+  .path { display: block; margin-top: 8px; overflow-x: auto; white-space: nowrap; padding: 8px 10px; }
+  details { border: 1px solid var(--line); border-radius: 14px; background: rgba(10,26,70,.45); }
+  details + details { margin-top: 10px; }
+  summary { cursor: pointer; padding: 14px 18px; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+  summary::after { content: "+"; color: var(--accent); font-weight: 800; }
+  details[open] summary::after { content: "–"; }
+  details > div { padding: 0 18px 16px; color: var(--muted); }
+  .contact { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between;
+    border: 1px solid var(--accent); border-radius: 22px; padding: 26px; background: linear-gradient(120deg, rgba(10,77,255,.35), rgba(5,14,46,.7)); }
+  .phone-no { font-family: var(--display); font-size: clamp(40px, 7vw, 64px); font-weight: 800; letter-spacing: .02em; user-select: all; }
+  footer { margin-top: 40px; color: var(--muted); font-size: 13px; text-align: center; }
+  @media (max-width: 820px) {
+    .hero { grid-template-columns: minmax(0, 1fr); }
+    .phone { width: min(300px, 100%); }
+    .feat { grid-template-columns: minmax(0, 1fr); }
+    .req { grid-template-columns: minmax(0, 1fr); }
+    .models { grid-template-columns: minmax(0, 1fr); }
+    ol.steps > li { grid-template-columns: 44px minmax(0, 1fr); }
+    ol.steps > li::before { width: 44px; height: 44px; font-size: 30px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <img src="logo.png" alt="Ad Working Production">
+    <span class="tag">Premiere Pro plagini · v1.1.0</span>
+  </header>
+
+  <div class="hero">
+    <div>
+      <h1>AZ Altyazı</h1>
+      <p class="lead">Premiere Pro üçün Azərbaycan dilində avtomatik altyazı. Klipi seç, düyməyə bas: səs yazıya çevrilir, stilli altyazı birbaşa timeline-a düşür.</p>
+      <div class="chips">
+        <span class="chip price">30 AZN</span><span class="chip">Limitsiz</span><span class="chip">Öz kompüterində işləyir</span><span class="chip">22 hazır stil</span>
+      </div>
+      <div class="cta">
+        <a class="btn wa" id="wa" href="https://wa.me/994702247724?text=Salam!%20AZ%20Altyaz%C4%B1%20plagini%20(30%20AZN)%20almaq%20ist%C9%99yir%C9%99m." target="_blank" rel="noopener">
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></svg>
+          WhatsApp-a yaz · 30 AZN
+        </a>
+      </div>
+      <p class="note" id="dl-note">Almaq üçün yazın, quraşdırma faylını WhatsApp-da göndəririk. Açılmasa: 070 224 77 24 · Windows 10/11 · Premiere Pro 2022 və yeni</p>
+    </div>
+    <div class="phone">
+      <video src="teqdimat.mp4" poster="poster.jpg" controls playsinline preload="metadata" aria-label="AZ Altyazı təqdimat videosu"></video>
+    </div>
+  </div>
+
+  <section aria-labelledby="h-feat">
+    <h2 id="h-feat">Nə edir</h2>
+    <div class="feat">
+      <div class="card"><b>Səs → yazı</b><p>Klipin səsi Whisper modeli ilə Azərbaycan dilində mətnə çevrilir, vaxt kodlu SRT yaranır və sekansa altyazı treki kimi qoyulur.</p></div>
+      <div class="card"><b>Üç mənbə</b><p>Timeline-da seçilmiş kliplər, A1 trekindəki bütün kliplər və ya kompüterdən istənilən video/audio fayl.</p></div>
+      <div class="card"><b>Xüsusi sözlər</b><p>Adları, şəhərləri, brendləri vergüllə yazın (Bakı, Xırdalan, Kapital Bank). Model onları düzgün yazır.</p></div>
+      <div class="card"><b>Stil və effekt</b><p>Şrift, rəng, gradient, kontur, kölgə, neon parıltı, 3D dərinlik, fon qutusu, animasiya və danışığa uyğun aktiv söz effekti.</p></div>
+      <div class="card"><b>Şəffaf render</b><p>Stilli altyazı ProRes 4444 şəffaf fonlu video kimi render olunur və avtomatik boş video trekə (V2, V3…) qoyulur.</p></div>
+      <div class="card"><b>Mətni düzəlt</b><p>"Mətn" bölməsində istənilən sətri dəyiş və ya sil. Vaxta klikləyəndə timeline həmin yerə keçir.</p></div>
+    </div>
+    <div class="styles" aria-label="Hazır stillər">
+      <span>Klassik</span><span>TikTok Pop</span><span>Hormozi</span><span>Karaoke</span><span>Söz qutusu</span><span>Bir söz</span><span>Neon</span><span>Retro oyun</span><span>Yazı makinası</span><span>Komiks</span><span>Əl yazısı</span><span>Qırmızı lent</span><span>Xəbər</span><span>Minimal</span><span>Qızıl</span><span>Gradient</span><span>Marker</span><span>3D kölgə</span><span>Podkast</span><span>Şirin</span><span>İdman</span><span>Kino</span>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-req">
+    <h2 id="h-req">Tələblər</h2>
+    <ul class="req">
+      <li>Windows 10 / 11 (64-bit)</li>
+      <li>Adobe Premiere Pro 2022 (v22) və daha yeni</li>
+      <li>Ən azı 8 GB RAM <small>(large-v3 üçün 16 GB tövsiyə olunur)</small></li>
+      <li>Quraşdırma zamanı internet <small>(təxminən 2–4 GB yüklənir)</small></li>
+      <li>NVIDIA videokart <small>(məcburi deyil, olsa bir neçə dəfə sürətli işləyir)</small></li>
+      <li>Quraşdırmadan sonra internet lazım deyil</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="h-inst">
+    <h2 id="h-inst">Quraşdırma</h2>
+    <ol class="steps">
+      <li><div><h3>ZIP-i çıxarın</h3><p>WhatsApp-da aldığınız <code>AzAltyazi-Premiere.zip</code> faylının üzərində sağ klik → <strong>Extract All</strong> (Hamısını çıxar).</p></div></li>
+      <li><div><h3>Premiere Pro-nu bağlayın</h3><p>Quraşdırma vaxtı Premiere açıq olmamalıdır.</p></div></li>
+      <li><div><h3>install.bat-ı işə salın</h3><p>Çıxarılmış qovluqda <code>install.bat</code> faylına iki dəfə klikləyin. Windows <strong>"Windows protected your PC"</strong> yazsa: <strong>More info → Run anyway</strong>. NVIDIA videokartınız varsa, GPU versiyası soruşulacaq: <kbd>B</kbd> yazın.</p></div></li>
+      <li><div><h3>Modeli seçin</h3><p>Pəncərə model soruşacaq. Rəqəmi yazıb Enter basın (ikisi üçün <kbd>1,2</kbd>):</p>
+        <div class="models">
+          <div><b>1 · large-v3</b>~3.1 GB, ən dəqiq. GPU varsa tövsiyə.</div>
+          <div><b>2 · large-v3-turbo</b>~1.6 GB, sürətli. CPU üçün tövsiyə.</div>
+          <div><b>3 · medium</b>~1.5 GB, zəif kompüterlər üçün.</div>
+        </div></div></li>
+      <li><div><h3>Hazırdır</h3><p><strong>"Quraşdırma tamamlandı!"</strong> yazısını görəndə pəncərəni bağlayın.</p></div></li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="h-use">
+    <h2 id="h-use">İstifadə</h2>
+    <ol class="steps">
+      <li><div><h3>Paneli açın</h3><p>Premiere Pro → <strong>Window → Extensions → AZ Altyazı</strong>. Yeni versiyalarda: <strong>Window → Extensions (Legacy) → AZ Altyazı</strong>.</p></div></li>
+      <li><div><h3>Mənbəni seçin, düyməni basın</h3><p>Klipi seçin və <strong>"Altyazı yarat"</strong> basın. Altyazı sekansda ayrıca <strong>Subtitles</strong> treki kimi görünür; SRT faylı layihənin yanındakı <code>Altyazilar</code> qovluğunda saxlanılır.</p></div></li>
+      <li><div><h3>Stil verin, render edin</h3><p><strong>"Stil"</strong> bölməsində 22 stildən birini seçin, istəsəniz dəyişib <strong>"Yadda saxla"</strong> ilə saxlayın. <strong>"Stilli altyazını render et"</strong> basın: şəffaf video klipin üstünə qoyulur.</p></div></li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="h-fix">
+    <h2 id="h-fix">Problem olarsa</h2>
+    <details><summary>Panel Extensions menyusunda görünmür</summary><div>install.bat-ı yenidən işə salın, sonra Premiere-i tam bağlayıb yenidən açın.</div></details>
+    <details><summary>"whisper-cli.exe tapılmadı" və ya "model tapılmadı"</summary><div>install.bat-ı yenidən işə salın. Və ya panelin "Ayarlar" bölməsində yolları göstərin.</div></details>
+    <details><summary>Çox yavaş işləyir</summary><div>large-v3-turbo modelini seçin və ya GPU versiyasını quraşdırın.</div></details>
+    <details><summary>GPU versiyası xəta verir</summary><div>Bu qovluğu silin, install.bat-ı yenidən işə salın və GPU sualına <kbd>X</kbd> cavab verin:<code class="path">%APPDATA%\Adobe\CEP\extensions\AzAltyazi\bin</code></div></details>
+    <details><summary>Altyazı treki yaranmadı</summary><div>SRT faylı Project panelindədir: onu timeline-a sürükləyin.</div></details>
+    <details><summary>Stilli altyazı timeline-a qoyulmadı</summary><div>Video "Altyazilar" qovluğunda və Project panelindədir: onu ən üst video trekə sürükləyin.</div></details>
+    <details><summary>Stilli altyazıda şrift fərqli görünür</summary><div>install.bat-ı yenidən işə salın (şriftlər yüklənəcək), sonra paneli yenidən açın. Şrift siyahısında "⚠ ə/ğ/ş yoxdur" yazılıbsa, həmin şriftdə Azərbaycan hərfləri yoxdur.</div></details>
+    <details><summary>Silmək istəyirəm</summary><div>Bu qovluğu silin:<code class="path">%APPDATA%\Adobe\CEP\extensions\AzAltyazi</code></div></details>
+  </section>
+
+  <section aria-labelledby="h-con">
+    <div class="contact">
+      <div>
+        <h2 id="h-con" style="margin-bottom:6px">Sualınız var?</h2>
+        <p style="color:var(--muted)">Qiymət: <strong style="color:var(--warn)">30 AZN</strong>. WhatsApp və ya Instagram: <strong style="color:var(--fg)">@ad_working.az</strong></p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-start">
+        <span class="phone-no" id="phone">070 224 77 24</span>
+        <button class="ghost" id="copy" type="button">Nömrəni kopyala</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>© Ad Working Production · Bakı</footer>
+</div>
+
+<script>
+  (function () {
+    var note = document.getElementById("dl-note");
+    function say(msg, cls) { note.textContent = msg; note.className = "note" + (cls ? " " + cls : ""); }
+    var copyBtn = document.getElementById("copy");
+    copyBtn.addEventListener("click", function () {
+      var t = "0702247724";
+      try {
+        navigator.clipboard.writeText(t).then(function () { copyBtn.textContent = "Kopyalandı"; },
+          function () { selectPhone(); });
+      } catch (e) { selectPhone(); }
+    });
+    function selectPhone() {
+      var r = document.createRange(); r.selectNodeContents(document.getElementById("phone"));
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      copyBtn.textContent = "Seçildi, Ctrl+C basın";
+    }
+  })();
+</script>
+</body></html>
